@@ -19,7 +19,9 @@ export function initMap(ymaps, containerId) {
     geoObjectBalloonContentLayout: getDetailsContentLayout(ymaps)
   });
 
+  objectManager.objects.options.set('preset', 'islands#greenDotIcon');
   objectManager.clusters.options.set('preset', 'islands#greenClusterIcons');
+  myMap.geoObjects.add(objectManager);
 
   loadList().then(data => {
     objectManager.add(data);
@@ -29,7 +31,7 @@ export function initMap(ymaps, containerId) {
   objectManager.objects.events.add('click', event => {
     const objectId = event.get('objectId');
     const obj = objectManager.objects.getById(objectId);
-
+    
     objectManager.objects.balloon.open(objectId);
 
     if (!obj.properties.details) {
