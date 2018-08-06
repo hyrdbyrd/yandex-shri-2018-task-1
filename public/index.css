@@ -1,16 +1,27 @@
 html,
 body,
 #map {
-  margin: 0;
+  margin: 10px auto;
   padding: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 600px;
+  height: 600px;
 }
 
 .details-info {
   margin-bottom: 10px;
+  display: block;
 }
-
+.details-info-block .close {
+  font-size: 26px;
+  position: absolute;
+  color: gray;
+  text-decoration: none;
+  right: 5px;
+  top: 1px;
+}
+.details-info-block .close:hover {
+  color: black;
+}
 .details-label {
   color: gray;
   text-transform: uppercase;

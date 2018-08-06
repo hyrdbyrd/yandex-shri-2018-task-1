@@ -31,14 +31,16 @@ export function initMap(ymaps, containerId) {
   objectManager.objects.events.add('click', event => {
     const objectId = event.get('objectId');
     const obj = objectManager.objects.getById(objectId);
-    
-    objectManager.objects.balloon.open(objectId);
 
     if (!obj.properties.details) {
       loadDetails(objectId).then(data => {
+        console.log(data);
         obj.properties.details = data;
         objectManager.objects.balloon.setData(obj);
+        objectManager.objects.balloon.open(objectId);
       });
+    } else {
+      objectManager.objects.balloon.open(objectId);
     }
   });
 

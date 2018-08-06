@@ -7,7 +7,7 @@ export function mapServerData(serverData) {
       isActive: obj.isActive,
       geometry: {
         type: "Point",
-        coordinates: [obj.lat, obj.long]
+        coordinates: [obj.x, obj.y]
       },
       properties: {
         iconCaption: obj.serialNumber,

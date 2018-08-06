@@ -22,8 +22,8 @@ exports.generateData = function() {
     data.push({
       serialNumber: faker.address.zipCode(),
       isActive: Math.random() > 0.03,
-      lat: 55.755222 + rand() * 0.12242,
-      long: 37.62102 + rand() * 0.180189
+      x: 55.755222 + rand() * 0.12242,
+      y: 37.62102 + rand() * 0.180189
     });
   }
 
