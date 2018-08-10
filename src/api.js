@@ -3,7 +3,7 @@ import { mapServerData } from './mappers';
 export function loadList() {
   return fetch('/api/stations')
     .then(response => response.json())
-    .then(mapServerData)
+    .then(mapServerData);
 }
 
 export function loadDetails(id) {

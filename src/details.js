@@ -1,8 +1,8 @@
 import { createChart } from './chart';
 
 export function getDetailsContentLayout(ymaps) {
-  return ymaps.templateLayoutFactory.createClass(
-    `<div class="details-info details-info-block">
+  const BalloonContentLayout = ymaps.templateLayoutFactory.createClass(
+    `<div class="details-info">
       {% if (properties.details) %}
       <div class="details-info">
         <div class="details-label">
@@ -38,7 +38,7 @@ export function getDetailsContentLayout(ymaps) {
     </div>`,
     {
       build: function () {
-        this.constructor.superclass.build.call(this);
+        BalloonContentLayout.superclass.build.call(this);
 
         const { details } = this.getData().object.properties;
         if (details) {
@@ -56,8 +56,10 @@ export function getDetailsContentLayout(ymaps) {
           this.connectionChart.destroy();
         }
 
-        this.constructor.superclass.clear.call(this);
+        BalloonContentLayout.superclass.clear.call(this);
       }
     }
   );
+
+  return BalloonContentLayout;
 }
